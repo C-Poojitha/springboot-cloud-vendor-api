@@ -22,28 +22,70 @@ The project follows the standard Spring Boot directory structure:
 - `src/main/java/com/thinkconstructive/rest_demo/controller/cloudvendorAPIservice.java`: Contains the REST controller exposing the CRUD API endpoints.
 - `src/main/java/com/thinkconstructive/rest_demo/model/cloudvendor.java`: The POJO (Plain Old Java Object) representing the Cloud Vendor entity.
 
-## API Endpoints
+## API Endpoints and Expected Outcomes
 
-The API is accessible under the base URL `/cloudvendor`.
+The API is accessible under the base URL `/cloudvendor`. Here are detailed examples of each operation:
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/cloudvendor/{vendorId}` | Retrieves the details of a specific cloud vendor. |
-| `POST` | `/cloudvendor` | Creates a new cloud vendor. Expects a JSON payload in the request body. |
-| `PUT` | `/cloudvendor` | Updates an existing cloud vendor. Expects a JSON payload in the request body. |
-| `DELETE` | `/cloudvendor/{vendorId}` | Deletes a cloud vendor by its ID. |
+### 1. Get Cloud Vendor
+- **Method:** `GET`
+- **Endpoint:** `/cloudvendor/{vendorId}`
+- **Example Request:** `http://localhost:8080/cloudvendor/c1`
+- **Expected Output:**
+  ```json
+  {
+      "vendorId": "c1",
+      "vendorName": "vendor1",
+      "vendorAddress": "vendoraddress1",
+      "vendorPhoneNumber": "xxxxxxxxxx"
+  }
+  ```
+  ![Get Request Example](screenshots/get.png)
 
-### Example JSON Payload for POST/PUT
+### 2. Create Cloud Vendor
+- **Method:** `POST`
+- **Endpoint:** `/cloudvendor`
+- **Example Request Body (JSON):**
+  ```json
+  {
+      "vendorId": "c2",
+      "vendorName": "vendor2",
+      "vendorAddress": "vendoraddress two",
+      "vendorPhoneNumber": "1234567890"
+  }
+  ```
+- **Expected Output:**
+  ```text
+  cloudvendor created successfully
+  ```
+  ![Post Request Example](screenshots/post.png)
 
-```json
-{
-  "vendorId": "C1",
-  "vendorName": "Vendor 1",
-  "vendorAddress": "Vendor Address 1",
-  "vendorPhoneNumber": "1234567890"
-}
-```
-*(Note: Adjust the fields based on the exact attributes in the `cloudvendor` class).*
+### 3. Update Cloud Vendor
+- **Method:** `PUT`
+- **Endpoint:** `/cloudvendor`
+- **Example Request Body (JSON):**
+  ```json
+  {
+      "vendorId": "c4",
+      "vendorName": "vendor4",
+      "vendorAddress": "vendoraddress four ",
+      "vendorPhoneNumber": "1234567890"
+  }
+  ```
+- **Expected Output:**
+  ```text
+  cloudvendor updated successfully
+  ```
+  ![Put Request Example](screenshots/put.png)
+
+### 4. Delete Cloud Vendor
+- **Method:** `DELETE`
+- **Endpoint:** `/cloudvendor/{vendorId}`
+- **Example Request:** `http://localhost:8080/cloudvendor/c2`
+- **Expected Output:**
+  ```text
+  cloudvendor deleted successfully
+  ```
+  ![Delete Request Example](screenshots/delete.png)
 
 ## How to Run
 
